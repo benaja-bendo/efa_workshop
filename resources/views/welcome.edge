@@ -32,17 +32,36 @@
     <section class="section_search">
       <form action="">
         <div>
-          <input type="text" type="search" name="q" placeholder="lancer un sujet ..." />
-          <button type="submit">recherche</button>
+          <input type="text" type="search" name="q" placeholder="lancer un sujet ..." maxlength="20" autocomplete="off" required/>
+          <button type="submit">	
+            &#128269;</button>
         </div>
         <div>
+          <label>Langage souhaité :</label>
           <select name="lang" id="lang">
-            <option value="fr" selected>France</option>
+            <option value="fr">Français</option>
             <option value="en">Anglais</option>
             <option value="es">Espagnol</option>
             <option value="al">Allemand</option>
           </select>
         </div>
+        <div>
+          <label for="max">Nombre d'articles attendus (1-100) :</label>
+          <input type="number" id="max" name="max" min="1" max="100">
+        </div>
+        <label>Origine du journal :</label>
+          <select name="country" id="country">
+            <option value="null"> </option>
+            <option value="fr">Française</option>
+            <option value="en">Anglaise</option>
+            <option value="es">Espagnole</option>
+            <option value="al">Allemande</option>
+          </select>
+          <label>Trier par :</label>
+          <select name="sortby" id="sortby" required>
+            <option value="revelance">Pertinence</option>
+            <option value="publishedAt">Date de publication</option>
+          </select>
       </form>
     </section>
     @if(datas.length === 0)
