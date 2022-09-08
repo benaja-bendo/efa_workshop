@@ -38,7 +38,7 @@ import { fetch } from "undici";
 Route.get("/", async ({ view, request }) => {
   const allData = request.all();
   if (allData.q == undefined) return view.render("welcome", { datas: [] });
-  const { q } = allData ?? "bitcoin";
+  const { q } = request.all() ?? "bitcoin";
   const url = `https://gnews.io/api/v4/search?q=${q}&lang=fr&max=20&country=fr&sortby=relevance&token=943c6ea25801e2dd81bca4003c5f6d88`;
 
   const res = await fetch(url);
