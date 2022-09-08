@@ -1,4 +1,9 @@
 {
+<<<<<<< HEAD
   "assets/app.css": "http://localhost:8080/assets/app.css",
   "assets/app.js": "http://localhost:8080/assets/app.js"
+=======
+  "assets/app.css": "http://localhost:33423/assets/app.css",
+  "assets/app.js": "http://localhost:33423/assets/app.js"
+>>>>>>> 73d04c6edb51488adc1002e956341a868be05222
 }
