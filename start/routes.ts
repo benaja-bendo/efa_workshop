@@ -36,14 +36,20 @@ import { fetch } from "undici";
 // }
 
 Route.get("/", async ({ view, request }) => {
-  const allData = request.all();
-  if (allData.q == undefined) return view.render("welcome", { datas: [] });
-  const { q } = request.all() ?? "bitcoin";
-  const url = `https://gnews.io/api/v4/search?q=${q}&lang=fr&max=20&country=fr&sortby=relevance&token=943c6ea25801e2dd81bca4003c5f6d88`;
+  if (Object.keys(request.all()).length === 0) {
+    return view.render("welcome", { datas: [] });
+  }
+
+  const { q, lang, max, sortby } = request.all();
+
+  const url = `https://gnews.io/api/v4/search?q=${
+    q == "" ? "bitcoin" : q
+  }&lang=${lang == "" ? "fr" : lang}&max=${
+    max == "" ? 20 : max
+  }&country=fr&sortby=${sortby}&token=943c6ea25801e2dd81bca4003c5f6d88`;
 
   const res = await fetch(url);
-  const datas = await res.json();
-  console.log(datas, url);
+  const { articles }: any = await res.json();
 
-  return view.render("welcome", { datas: datas.articles });
+  return view.render("welcome", { datas: articles });
 });

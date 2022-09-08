@@ -29,13 +29,14 @@
     </section>
   </header>
   <main>
-    <section class="section_search">
-      <form action="">
-        <div>
-          <input type="text" type="search" name="q" placeholder="lancer un sujet ..." maxlength="20" autocomplete="off" required/>
-          <button type="submit">	
-            &#128269;</button>
-        </div>
+    <form class="section_search" action="" method="GET">
+      <div class="imput_search">
+        <input type="text" type="search" name="q" placeholder="lancer un sujet ..." maxlength="20" autocomplete="off"
+          required />
+        <button type="submit">
+          &#128269;</button>
+      </div>
+      <div class="filter_search">
         <div>
           <label>Langage souhaité :</label>
           <select name="lang" id="lang">
@@ -49,24 +50,28 @@
           <label for="max">Nombre d'articles attendus (1-100) :</label>
           <input type="number" id="max" name="max" min="1" max="100">
         </div>
-        <label>Origine du journal :</label>
-          <select name="country" id="country">
-            <option value="null"> </option>
-            <option value="fr">Française</option>
-            <option value="en">Anglaise</option>
-            <option value="es">Espagnole</option>
-            <option value="al">Allemande</option>
-          </select>
+        <div>
           <label>Trier par :</label>
           <select name="sortby" id="sortby" required>
             <option value="revelance">Pertinence</option>
             <option value="publishedAt">Date de publication</option>
           </select>
-      </form>
-    </section>
-    @if(datas.length === 0)
+        </div>
+      </div>
+
+      {{-- <label>Origine du journal :</label>
+      <select name="country" id="country">
+        <option value=""> </option>
+        <option value="fr">Française</option>
+        <option value="en">Anglaise</option>
+        <option value="es">Espagnole</option>
+        <option value="al">Allemande</option>
+      </select> --}}
+
+    </form>
+    @if(datas.length==0)
     <p style="text-align: center">Aucun resultat trouvé</p>
-    @end
+    @else
     <section class="section_list">
       @each(data in datas)
       <div class="article">
@@ -85,11 +90,12 @@
       @end
 
     </section>
+    @end
+
   </main>
 
   <script defer>
     addEventListener('load', onload);
-
     const animation = document.querySelector('#animation')
     onload = (event) => {
   animation.classList.add("animation")

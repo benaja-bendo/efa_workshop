@@ -47,6 +47,31 @@ body {
   display: block;
 }
 
+.section_search {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.imput_search {
+display: flex;
+width: 100%;
+}
+.imput_search input{
+  width: 100%;
+  padding: 4px 7px;
+}
+
+.filter_search {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 16px 4px;
+}
+
 /**
  effet Neon
 */
@@ -87,12 +112,12 @@ footer {
   overflow: hidden;
 }
 
-.aMain{
+.aMain {
   height: 100%;
   width: 25%;
 }
 
-.divDroite{
+.divDroite {
   height: 100%;
   width: 25%;
 }
