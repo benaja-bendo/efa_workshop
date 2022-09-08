@@ -15,6 +15,14 @@ body {
   position: relative;
 }
 
+.search_bar{
+  border-radius: 30px;
+}
+
+.submit{
+  border-radius: 30px;
+}
+
 .section_search {
   height: 200px;
   width: 100%;
@@ -87,6 +95,8 @@ header {
 
 
 footer {
+  background-color: #101d24;
+  margin-top: 30vh;
   box-shadow:
     0 0 8px #fff,
     inset 0 0 8px #fff,
@@ -308,4 +318,19 @@ h1 {
 
 .firstOne>article>p>a {
   text-decoration: none;
+}
+
+#footer{
+  margin-top: 95px;
+}
+
+.nos_reseaux{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.insta{
+  margin-top: 45px;
 }
